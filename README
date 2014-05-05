@@ -1,0 +1,13 @@
+testing utf encoding of aramaic in java
+
+text copied from
+http://arc.wikipedia.org/wiki/ܠܫܢܐ_ܐܪܡܝܐ
+
+command line instructions:
+
+  cd test_utf8/src
+
+  javac -g Main.java -d ../
+ 
+  cd ..
+  java Main
