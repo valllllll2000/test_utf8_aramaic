@@ -1,6 +1,4 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 /**
  * Created by valeria on 5/5/14.
@@ -20,14 +18,21 @@ public class Main {
         BufferedReader br = null;
         try {
             br = new BufferedReader(new FileReader("arameen"));
+            File file = new File("arameen_new");
+            if (!file.exists()) {
+                file.createNewFile();
+            }
             StringBuilder sb = new StringBuilder();
             String line = br.readLine();
-
+            FileWriter fw = new FileWriter(file.getAbsoluteFile());
+            BufferedWriter bw = new BufferedWriter(fw);
             while (line != null) {
                 sb.append(line);
                 sb.append(System.lineSeparator());
+                bw.write(line);
                 line = br.readLine();
             }
+            bw.close();
             String everything = sb.toString();
             System.out.println("Read text : "+everything);
         } catch (IOException e) {
